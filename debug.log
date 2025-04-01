@@ -1,0 +1,23 @@
++ [[ left == \l\e\f\t ]]
++ build_status_line left
++ local position=left
++ local option_name=@tmux_theme_statuses_left
++ local status_modules
+++ get_tmux_option @tmux_theme_statuses_left ''
+++ local option=@tmux_theme_statuses_left
+++ local default_value=
+++ local option_value
++++ tmux show-option -gqv @tmux_theme_statuses_left
+++ option_value=session_name
+++ [[ -z session_name ]]
+++ echo session_name
++ status_modules=session_name
++ local status_str=
++ for status in '$status_modules'
++ [[ -f /Users/hackeysack09/.config/tmux/plugins/tmux-theme/statuses/session_name.sh ]]
+++ bash /Users/hackeysack09/.config/tmux/plugins/tmux-theme/statuses/session_name.sh
++ status_output='#[fg=green]  #(tmux display-message -p '\''#S'\'')'
++ status_str+='#[fg=green]  #(tmux display-message -p '\''#S'\'') '
++ echo '#[fg=green]  #(tmux display-message -p '\''#S'\'') '
+#[fg=green]  #(tmux display-message -p '#S') 
++ exit 0
